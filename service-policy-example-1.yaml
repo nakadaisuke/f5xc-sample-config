@@ -1,0 +1,73 @@
+metadata:
+  name: service-policy-example-1
+  namespace: demo-japan
+  labels: {}
+  annotations: {}
+  disable: false
+spec:
+  algo: FIRST_MATCH
+  server_name: productpage
+  rule_list:
+    rules:
+      - metadata:
+          name: rule-1
+          disable: false
+        action: null
+        challenge_action: null
+        spec:
+          action: ALLOW
+          any_client: {}
+          headers: []
+          query_params:
+            - key: u
+              item:
+                exact_values:
+                  - normal
+                regex_values: []
+                transformers: []
+              invert_matcher: false
+          http_method:
+            methods:
+              - GET
+            invert_matcher: false
+          any_ip: {}
+          any_asn: {}
+          arg_matchers: []
+          cookie_matchers: []
+          waf_action:
+            none: {}
+          rate_limiter: []
+          forwarding_class: []
+          scheme: []
+          challenge_action: DEFAULT_CHALLENGE
+          bot_action:
+            none: {}
+          mum_action:
+            default: {}
+      - metadata:
+          name: rule-2
+          disable: false
+        action: null
+        challenge_action: null
+        spec:
+          action: DENY
+          any_client: {}
+          headers: []
+          query_params: []
+          http_method:
+            methods: []
+            invert_matcher: false
+          any_ip: {}
+          any_asn: {}
+          arg_matchers: []
+          cookie_matchers: []
+          waf_action:
+            none: {}
+          rate_limiter: []
+          forwarding_class: []
+          scheme: []
+          challenge_action: DEFAULT_CHALLENGE
+          bot_action:
+            none: {}
+          mum_action:
+            default: {}
